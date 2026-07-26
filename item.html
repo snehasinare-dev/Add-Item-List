@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Item List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      color: darkgreen;
+    }
+    input[type="text"] {
+      padding: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 6px 12px;
+      font-size: 16px;
+      margin-left: 5px;
+    }
+    ul {
+      margin-top: 20px;
+      list-style-type: square;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Food Item List</h1>
+
+  <!-- Input field and button -->
+  <input type="text" id="foodInput" placeholder="Enter a food item" />
+  <button onclick="addFoodItem()">Add</button>
+
+  <!-- List where food items will appear -->
+  <ul id="foodList"></ul>
+
+  <script>
+    function addFoodItem() {
+      const input = document.getElementById("foodInput");
+      const food = input.value.trim();
+
+      if (food !== "") {
+        const li = document.createElement("li");
+        li.textContent = food;
+
+        document.getElementById("foodList").appendChild(li);
+        input.value = ""; // Clear input field
+      } else {
+        alert("Please enter a food item.");
+      }
+    }
+  </script>
+
+</body>
+</html>
